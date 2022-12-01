@@ -25,6 +25,10 @@ function App() {
   const [shoppingMenu, setShoppingMenu] = useState(sockData)
   const [cart, setCart] = useState({});
   const [cartIsOpen, setCartIsOpen] = useState(false);
+  let sockDataMap = {}
+  for (let i = 0; i < sockData.length; i++) {
+    sockDataMap[sockData[i].name] = sockData[i]
+  }
 
   function openCart() {
     setCartIsOpen(true);
@@ -36,12 +40,12 @@ function App() {
 
   function afterOpenCart() {}
 
-  const addToCart = (i) => {
+  const addToCart = (sock) => {
     const updatedCart = Object.assign({}, cart)
-    if (updatedCart[i]) {
-      updatedCart[i] = updatedCart[i] + 1
+    if (updatedCart[sock.name]) {
+      updatedCart[sock.name] = updatedCart[sock.name] + 1
     } else {
-      updatedCart[i] = 1
+      updatedCart[sock.name] = 1
     }
     setCart(updatedCart)
   }
@@ -56,7 +60,7 @@ function App() {
     let totalPrice = 0
 
     Object.entries(cart).forEach(([key, value]) => {
-      totalPrice += value * sockData[key].price
+      totalPrice += value * sockDataMap[key].price
     })
 
     return totalPrice
@@ -76,8 +80,298 @@ function App() {
   }
 
   const sortShoppingMenu = () => {
-    const updateMenu = Object.assign({}, shoppingMenu)
-    console.log(updateMenu)
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxPrice.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const sortedMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      setShoppingMenu(sortedMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const animalFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxAnimal.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const nonAnimalFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxNonAnimal.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const ankleFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxAnkle.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const crewFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxCrew.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const executiveFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxExecutive.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxNoShow.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      }
+      setShoppingMenu(updateMenu)
+    }
+  }
+
+  const noShowFilterShoppingMenu = () => {
+    let checkBoxPrice = document.getElementById("SortPrice");
+    let checkBoxAnimal = document.getElementById("FilterAnimal");
+    let checkBoxNonAnimal = document.getElementById("FilterNonAnimal");
+    let checkBoxAnkle = document.getElementById("FilterAnkle")
+    let checkBoxCrew = document.getElementById("FilterCrew")
+    let checkBoxExecutive = document.getElementById("FilterExecutive")
+    let checkBoxNoShow = document.getElementById("FilterNoShow")
+
+    if (checkBoxNoShow.checked) {
+      const updateMenu = Object.assign({}, shoppingMenu)
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      setShoppingMenu(filteredMenu)
+    } else {
+      let updateMenu = Object.assign({}, sockData)
+      if (checkBoxPrice.checked) {
+        updateMenu = Object.values(updateMenu).sort((a, b) => a.price > b.price ? 1: -1)
+      }
+
+      if (checkBoxAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
+      }
+
+      if (checkBoxNonAnimal.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Pattern" || value.graphic === "Mushroom")
+      }
+
+      if (checkBoxAnkle.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      }
+
+      if (checkBoxCrew.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      }
+
+      if (checkBoxExecutive.checked) {
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      }
+      setShoppingMenu(updateMenu)
+    }
+
   }
 
   return (
@@ -91,17 +385,51 @@ function App() {
           <div id={"FiltersContainer"}>
             <div id={"SortContainer"}>
               <p>Sort</p>
-              <label htmlFor={"SortPrice"}>Price (Asc):</label>
-              <input type={"checkbox"} id={"SortPrice"} onClick={sortShoppingMenu()}/>
+              <label htmlFor={"SortPrice"}>Price (Asc): </label>
+              <input type={"checkbox"} id={"SortPrice"} onClick={sortShoppingMenu}/>
             </div>
             <div id={"FilterContainer"}>
+              <p>Filter</p>
+              <div id={"Length"}>
+                <p>Length</p>
+                <div>
+                  <label htmlFor={"FilterAnkle"}>Ankle Socks: </label>
+                  <input type={"checkbox"} id={"FilterAnkle"} onClick={ankleFilterShoppingMenu}/>
+                </div>
 
+                <div>
+                  <label htmlFor={"FilterCrew"}>Crew Socks: </label>
+                  <input type={"checkbox"} id={"FilterCrew"} onClick={crewFilterShoppingMenu}/>
+                </div>
+
+                <div>
+                  <label htmlFor={"FilterExecutive"}>Executive Socks: </label>
+                  <input type={"checkbox"} id={"FilterExecutive"} onClick={executiveFilterShoppingMenu}/>
+                </div>
+
+                <div>
+                  <label htmlFor={"FilterNoShow"}>No-Show Socks: </label>
+                  <input type={"checkbox"} id={"FilterNoShow"} onClick={noShowFilterShoppingMenu}/>
+                </div>
+              </div>
+              <div id={"Graphic"}>
+                <p>Graphic</p>
+                <div>
+                  <label htmlFor={"FilterAnimal"}>Animal Socks: </label>
+                  <input type={"checkbox"} id={"FilterAnimal"} onClick={animalFilterShoppingMenu}/>
+                </div>
+
+                <div>
+                  <label htmlFor={"FilterNonAnimal"}>Non-Animal Socks: </label>
+                  <input type={"checkbox"} id={"FilterNonAnimal"} onClick={nonAnimalFilterShoppingMenu}/>
+                </div>
+              </div>
             </div>
           </div>
 
           <div id={"Menu"}>
-            {sockData.map((sock, index) => (
-                <SockItem sock={sock} addToCart={addToCart} index={index}/>
+            {Object.values(shoppingMenu).map((sock, _) => (
+                <SockItem sock={sock} addToCart={addToCart}/>
             ))}
           </div>
 
@@ -134,17 +462,17 @@ function App() {
                           return <div className={"CartEntry"}>
                             <div style={{display:"flex", flexDirection:"row"}}>
                               <div>
-                                <img style={{width:"10vw", height:"17.5vh"}} src={sockData[index].image} alt={"Image of a sock"}/>
+                                <img style={{width:"10vw", height:"17.5vh"}} src={sockDataMap[index].image} alt={"Image of a sock"}/>
                               </div>
 
                               <div style={{marginLeft:"1vw"}}>
-                                <p className={"CartItemName"}>{sockData[index].name}</p>
-                                <p className={"CartItemDescription"}>{sockData[index].description}</p>
-                                <p className={"CartItemPrice"}>{value}x ${sockData[index].price}</p>
+                                <p className={"CartItemName"}>{sockDataMap[index].name}</p>
+                                <p className={"CartItemDescription"}>{sockDataMap[index].description}</p>
+                                <p className={"CartItemPrice"}>{value}x ${sockDataMap[index].price}</p>
                               </div>
                             </div>
 
-                            <button className={"ItemRemove"} onClick={() => removeFromCart(Number(index))}>
+                            <button className={"ItemRemove"} onClick={() => removeFromCart(sockDataMap[index])}>
                               Remove
                             </button>
                           </div>

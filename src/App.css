@@ -17,8 +17,18 @@ body {
   padding: 3vw 3vh;
 }
 
-#Filters {
+#FiltersContainer {
+  max-width: 20vw;
+}
 
+#Length {
+  display: flex;
+  flex-direction: column;
+}
+
+#Graphic {
+  display: flex;
+  flex-direction: column;
 }
 
 #Menu {
