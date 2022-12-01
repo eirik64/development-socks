@@ -22,7 +22,6 @@ const customStyles = {
 };
 
 function App() {
-  let subtitle;
   const [cart, setCart] = useState({});
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
@@ -34,10 +33,7 @@ function App() {
     setCartIsOpen(false)
   }
 
-  function afterOpenCart() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
+  function afterOpenCart() {}
 
   const addToCart = (i) => {
     const updatedCart = Object.assign({}, cart)
@@ -49,6 +45,12 @@ function App() {
     setCart(updatedCart)
   }
 
+  const removeFromCart = (i) => {
+    const state = Object.assign({}, cart)
+    delete state[i]
+    setCart(state)
+  }
+
   const getPrice = () => {
     let totalPrice = 0
 
@@ -57,6 +59,19 @@ function App() {
     })
 
     return totalPrice
+  }
+
+  const getCartSize = () => {
+    let totalSize = 0
+
+    Object.entries(cart).forEach(([key, qty]) => {
+      totalSize += qty
+    })
+    if (totalSize === 0) {
+      return
+    }
+
+    return totalSize
   }
 
   return (
@@ -81,7 +96,7 @@ function App() {
                 </path>
               </svg>
             </button>
-            <span className='badge badge-warning' id='lblCartCount'> {Object.keys(cart).length} </span>
+            <span className='badge badge-warning' id='lblCartCount'> {getCartSize()} </span>
             <Modal
                 isOpen={cartIsOpen}
                 onAfterOpen={afterOpenCart}
@@ -98,8 +113,24 @@ function App() {
 
                 <div>
                   {
-                    Object.entries(cart).map(([key, value]) => {
-                          return <p className={"CartItem"}>{value}x {sockData[key].name}</p>
+                    Object.entries(cart).map(([index, value]) => {
+                          return <div className={"CartEntry"}>
+                            <div style={{display:"flex", flexDirection:"row"}}>
+                              <div>
+                                <img style={{width:"10vw", height:"17.5vh"}} src={sockData[index].image} alt={"Image of a sock"}/>
+                              </div>
+
+                              <div style={{marginLeft:"1vw"}}>
+                                <p className={"CartItemName"}>{sockData[index].name}</p>
+                                <p className={"CartItemDescription"}>{sockData[index].description}</p>
+                                <p className={"CartItemPrice"}>{value}x ${sockData[index].price}</p>
+                              </div>
+                            </div>
+
+                            <button className={"ItemRemove"} onClick={() => removeFromCart(Number(index))}>
+                              Remove
+                            </button>
+                          </div>
                         }
                     )
                   }

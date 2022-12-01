@@ -5,17 +5,30 @@
     border-style: solid;
     max-width: 25vw;
     border-width: 5px;
-    border-color: steelblue;
+    border-color: #6247aa;
+    margin: 1vw 1vh;
+    border-radius: 15px;
+    background-color: #102b3f;
 }
 
 .SockImage {
     width: 20vw;
     height: 35vh;
+    border-radius: 10px;
 }
 .SockName {
-    color: palegoldenrod;
+    color: #e2cfea;
 }
 
 .SockButton {
-    background-color: firebrick;
+    background-color: #e2cfea;
+    border-radius: 5px;
+    margin-bottom: 1vw;
+}
+.SockButton:hover {background-color: #b4a5bb}
+
+.SockButton:active {
+    background-color: #b4a5bb;
+    box-shadow: 0 2px #716775;
+    transform: translateY(2px);
 }
