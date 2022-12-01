@@ -2,37 +2,111 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#Title {
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#Shop {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2vh;
+}
+
+#Filters {
+
+}
+
+#Menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 70vw;
+  padding-left: 3vw;
+}
+
+/*MODAL*/
+
+#Cart {
+
+}
+
+#CartButton {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0/var(--tw-bg-opacity));
+  border-radius: 9999px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+#CartIcon {
+  color: rgb(255 255 255);
+  width: 2rem;
+  height: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 2vw;
 }
+
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+  font-size: 16px;
+  background: #ff0000;
+  color: #fff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 2rem;
+  margin-bottom: 6rem;
+}
+
+#CartModalContent {
+  width: 40vw;
+  height: 80vh;
+}
+
+#CartHeading {
+
+}
+
+/* Close button */
+.close {
+  color: #fff;
+  background-color: #999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.CartItem {
+
+}
+
+#TotalPrice {
+
+}
+

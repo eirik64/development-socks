@@ -1,0 +1,21 @@
+.SockItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    max-width: 25vw;
+    border-width: 5px;
+    border-color: steelblue;
+}
+
+.SockImage {
+    width: 20vw;
+    height: 35vh;
+}
+.SockName {
+    color: palegoldenrod;
+}
+
+.SockButton {
+    background-color: firebrick;
+}

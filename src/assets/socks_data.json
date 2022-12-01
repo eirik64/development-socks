@@ -48,39 +48,51 @@
     "image": "images/mushroom_crew_blue.jpg"
   },
   {
-    "name": "Multigrain Bread",
-    "description": "A loaf of fresh-baked multigrain bread",
-    "price": 4.99,
-    "image": "images/jenny.png"
+    "name": "Purple Mushroom Patterned Crew Socks",
+    "description": "Purple crew socks with different color mushrooms",
+    "price": 9.99,
+    "length": "crew",
+    "graphic": "Mushroom",
+    "image": "images/mushroom_crew_purple.jpg"
   },
   {
-    "name": "Croissant",
-    "description": "A classic butter croissant with a flaky crust",
-    "price": 2.99,
-    "image": "images/jessie.png"
+    "name": "Light Blue & Red Mushroom Crew Socks",
+    "description": "Light blue and red crew socks with bright patterned mushrooms",
+    "price": 9.99,
+    "length": "crew",
+    "graphic": "Mushroom",
+    "image": "images/mushroom_crew_red.jpg"
   },
   {
-    "name": "Toast with Butter",
-    "description": "A slice of toast with a pat of butter",
-    "price": 1.99,
-    "image": "images/kelly.png"
+    "name": "Black Shiba Inu No-Show Socks",
+    "description": "Black no-show shocks with a white shiba inu eating watermelon",
+    "price": 7.99,
+    "length": "no-show",
+    "graphic": "Dog",
+    "image": "images/shiba_noshow_black.jpg"
   },
   {
-    "name": "Tiramisu",
-    "description": "A classic tiramisu with layers of coffee-soaked ladyfingers and mascarpone cream",
-    "price": 3.99,
-    "image": "images/lauren.png"
+    "name": "Light Blue Ankle Turtle Socks",
+    "description": "Light blue ankle socks with a smiling turtle",
+    "price": 7.99,
+    "length": "ankle",
+    "graphic": "Turtle",
+    "image": "images/squirtle_ankle_blue.jpg"
   },
   {
-    "name": "Egg Tart",
-    "description": "A flaky pastry shell filled with a sweet egg custard",
-    "price": 2.99,
-    "image": "images/melissa.png"
+    "name": "Executive Brown Wool Socks",
+    "description": "Simple Brown wool sock",
+    "price": 9.99,
+    "length": "executive",
+    "graphic": "Pattern",
+    "image": "images/wool_brown.jpg"
   },
   {
-    "name": "Everything Bagel",
-    "description": "A toasted bagel with sesame seeds, poppy seeds, and dried onion",
-    "price": 2.99,
-    "image": "images/miku.png"
+    "name": "Patterned Wool Socks",
+    "description": "Patterned wool socks",
+    "price": 9.99,
+    "length": "executive",
+    "graphic": "Pattern",
+    "image": "images/wool_pink.jpg"
   }
 ]
