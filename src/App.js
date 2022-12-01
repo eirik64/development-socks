@@ -22,7 +22,7 @@ const customStyles = {
 };
 
 function App() {
-  let subtitle;
+  const [shoppingMenu, setShoppingMenu] = useState(sockData)
   const [cart, setCart] = useState({});
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
@@ -35,8 +35,6 @@ function App() {
   }
 
   function afterOpenCart() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
   }
 
   const addToCart = (i) => {
@@ -59,6 +57,11 @@ function App() {
     return totalPrice
   }
 
+  const sortShoppingMenu = () => {
+    const updateMenu = Object.assign({}, shoppingMenu)
+    console.log(updateMenu)
+  }
+
   return (
       <div className="App">
         <h1 id={"Title"}>Erick's Sock Emporium</h1>
@@ -67,6 +70,17 @@ function App() {
         </div>
 
         <div id={"Shop"}>
+          <div id={"FiltersContainer"}>
+            <div id={"SortContainer"}>
+              <p>Sort</p>
+              <label htmlFor={"SortPrice"}>Price (Asc):</label>
+              <input type={"checkbox"} id={"SortPrice"} onClick={sortShoppingMenu()}/>
+            </div>
+            <div id={"FilterContainer"}>
+
+            </div>
+          </div>
+
           <div id={"Menu"}>
             {sockData.map((sock, index) => (
                 <SockItem sock={sock} addToCart={addToCart} index={index}/>
