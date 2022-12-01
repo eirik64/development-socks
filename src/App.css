@@ -1,9 +1,13 @@
+body {
+  background-color: #a06cd5;
+}
+
 .App {
   text-align: center;
 }
 
 #Title {
-
+  color: #102b3f;
 }
 
 #Shop {
@@ -22,6 +26,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 70vw;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
 }
 
 /*MODAL*/
@@ -46,6 +52,7 @@
   bottom: 0;
   cursor: pointer;
 }
+
 
 #CartIcon {
   color: rgb(255 255 255);
@@ -85,7 +92,7 @@
 /* Close button */
 .close {
   color: #fff;
-  background-color: #999;
+  background-color: #ff0000;
   position: absolute;
   top: 0;
   right: 0;
@@ -101,8 +108,42 @@
   outline: none;
 }
 
-.CartItem {
+.CartEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.CartItemName {
+
+}
+
+.CartItemPrice {
+
+}
+
+.CartItemDescription {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.ItemRemove {
+  color: #fff;
+  background-color: #ff0000;
+  font-size: 14px;
+  border-radius: 7px;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ItemRemove:hover,
+.ItemRemove:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
 }
 
 #TotalPrice {
