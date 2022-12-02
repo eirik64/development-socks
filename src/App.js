@@ -380,7 +380,7 @@ function App() {
 
   return (
       <div className="App">
-        <h1 id={"Title"}>Erick's Sock Emporium</h1>
+        <h1 id={"Title"}>Sock Emporium</h1>
         <div id={"Filters"}>
 
         </div>
