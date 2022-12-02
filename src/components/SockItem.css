@@ -16,8 +16,13 @@
     height: 35vh;
     border-radius: 10px;
 }
-.SockName {
+.Sock {
     color: #e2cfea;
+}
+
+.Tags {
+    display: flex;
+    flex-direction: row;
 }
 
 .SockButton {

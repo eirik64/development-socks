@@ -138,22 +138,72 @@ body {
   font-style: italic;
 }
 
-.ItemRemove {
-  color: #fff;
-  background-color: #ff0000;
+.ItemQty {
+  font-weight: 600;
   font-size: 14px;
-  border-radius: 7px;
-  border: 2px solid #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.ItemRemove:hover,
-.ItemRemove:focus {
-  color: #000;
-  text-decoration: none;
+
+.ButtonContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: initial;
+  border-radius: .5rem;
+  height: 3vh;
+}
+
+.Plus {
+  border-bottom-right-radius: .25rem;
+  border-top-right-radius: .25rem;
   cursor: pointer;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219/var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99/var(--tw-text-opacity));
+  width: 2vw;
+  height: auto;
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.Minus {
+  border-bottom-left-radius: .25rem;
+  border-top-left-radius: .25rem;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219/var(--tw-bg-opacity));
+  width: 2vw;
+  height: auto;
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.Adding {
+  font-weight: 300;
+  font-size: 1.5vw;
+  margin: auto;
+}
+
+.Subtracting {
+  font-weight: 300;
+  font-size: 1.5vw;
+  margin: auto;
+}
+
+.Qty {
+  outline: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81/var(--tw-text-opacity));
+  font-weight: 600;
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219/var(--tw-bg-opacity));
+  width: 100%;
 }
 
 #TotalPrice {

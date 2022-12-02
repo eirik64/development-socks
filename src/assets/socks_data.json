@@ -3,15 +3,15 @@
     "name": "Brown Cat Ankle Socks",
     "description": "Cute brown socks with multi-colored cat faces",
     "price": 7.99,
-    "length": "ankle",
+    "length": "Ankle",
     "graphic": "Cat",
     "image": "images/cat_ankle_tan.jpg"
   },
   {
     "name": "Gray Cat No-Show Socks",
     "description": "Muted green socks with gray cat holding a fish in its mouth",
-    "price": 7.99,
-    "length": "no-show",
+    "price": 5.99,
+    "length": "No-Show",
     "graphic": "Cat",
     "image": "images/cat_noshow_gray.jpg"
   },
@@ -19,23 +19,23 @@
     "name": "Reindeer Ankle Socks",
     "description": "A cute pink sock with a humanoid reindeer wearing a pink hat and cape",
     "price": 9.99,
-    "length": "ankle",
+    "length": "Ankle",
     "graphic": "Reindeer",
     "image": "images/chopper_ankle_pink.jpg"
   },
   {
     "name": "Executive Wool Socks",
     "description": "Executive wool socks with a blue, red, green, and white pattern",
-    "price": 7.99,
-    "length": "executive",
+    "price": 11.99,
+    "length": "Executive",
     "graphic": "Pattern",
     "image": "images/christmas_wool_blue.jpg"
   },
   {
     "name": "Corgi No-Show Socks",
     "description": "Cute light brown socks with a graphic of a corgi saying hello!",
-    "price": 7.99,
-    "length": "no-show",
+    "price": 5.99,
+    "length": "No-Show",
     "graphic": "Dog",
     "image": "images/corgi_noshow_white.jpg"
   },
@@ -43,7 +43,7 @@
     "name": "Bright Blue Mushroom Crew Socks",
     "description": "Bright blue crew socks with a red and white mushroom with glasses on",
     "price": 9.99,
-    "length": "crew",
+    "length": "Crew",
     "graphic": "Mushroom",
     "image": "images/mushroom_crew_blue.jpg"
   },
@@ -51,23 +51,23 @@
     "name": "Purple Mushroom Patterned Crew Socks",
     "description": "Purple crew socks with different color mushrooms",
     "price": 9.99,
-    "length": "crew",
+    "length": "Crew",
     "graphic": "Mushroom",
     "image": "images/mushroom_crew_purple.jpg"
   },
   {
     "name": "Light Blue & Red Mushroom Crew Socks",
-    "description": "Light blue and red crew socks with bright patterned mushrooms",
+    "description": "Light blue and red Crew socks with bright patterned mushrooms",
     "price": 9.99,
-    "length": "crew",
+    "length": "Crew",
     "graphic": "Mushroom",
     "image": "images/mushroom_crew_red.jpg"
   },
   {
     "name": "Black Shiba Inu No-Show Socks",
     "description": "Black no-show shocks with a white shiba inu eating watermelon",
-    "price": 7.99,
-    "length": "no-show",
+    "price": 5.99,
+    "length": "No-Show",
     "graphic": "Dog",
     "image": "images/shiba_noshow_black.jpg"
   },
@@ -75,23 +75,23 @@
     "name": "Light Blue Ankle Turtle Socks",
     "description": "Light blue ankle socks with a smiling turtle",
     "price": 7.99,
-    "length": "ankle",
+    "length": "Ankle",
     "graphic": "Turtle",
     "image": "images/squirtle_ankle_blue.jpg"
   },
   {
     "name": "Executive Brown Wool Socks",
     "description": "Simple Brown wool sock",
-    "price": 9.99,
-    "length": "executive",
+    "price": 11.99,
+    "length": "Executive",
     "graphic": "Pattern",
     "image": "images/wool_brown.jpg"
   },
   {
     "name": "Patterned Wool Socks",
     "description": "Patterned wool socks",
-    "price": 9.99,
-    "length": "executive",
+    "price": 11.99,
+    "length": "Executive",
     "graphic": "Pattern",
     "image": "images/wool_pink.jpg"
   }

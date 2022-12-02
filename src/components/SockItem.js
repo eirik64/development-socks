@@ -5,9 +5,12 @@ export default function SockItem({sock, addToCart}) {
     return (
         <div className={"SockItem"}>
             <img className={"SockImage"} src={sock.image} alt={"Socks image"}/>
-            <p className={"SockName"}>{sock.name}</p>
+            <p className={"Sock"}>{sock.name}</p>
+            <p className={"Sock"}>Length: {sock.length}</p>
+            <p className={"Sock"}>Design: {sock.graphic}</p>
+            <p className={"Sock"}>${sock.price}</p>
             <button className={"SockButton"}
-                    onClick={() => addToCart(sock)}>Add To Cart</button>
+                    onClick={() => addToCart(sock.name)}>Add To Cart</button>
         </div>
     )
 }

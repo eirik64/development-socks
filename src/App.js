@@ -40,19 +40,23 @@ function App() {
 
   function afterOpenCart() {}
 
-  const addToCart = (sock) => {
+  const addToCart = (name) => {
     const updatedCart = Object.assign({}, cart)
-    if (updatedCart[sock.name]) {
-      updatedCart[sock.name] = updatedCart[sock.name] + 1
+    if (updatedCart[name]) {
+      updatedCart[name] = updatedCart[name] + 1
     } else {
-      updatedCart[sock.name] = 1
+      updatedCart[name] = 1
     }
     setCart(updatedCart)
   }
 
-  const removeFromCart = (i) => {
+  const removeFromCart = (name) => {
     const state = Object.assign({}, cart)
-    delete state[i]
+    if (state[name] === 1) {
+      delete state[name]
+    } else {
+      state[name]--
+    }
     setCart(state)
   }
 
@@ -103,19 +107,19 @@ function App() {
       }
 
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
       setShoppingMenu(updateMenu)
     }
@@ -145,19 +149,19 @@ function App() {
       }
 
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
       setShoppingMenu(updateMenu)
     }
@@ -186,19 +190,19 @@ function App() {
         updateMenu = Object.values(updateMenu).filter(value => value.graphic === "Dog" || value.graphic === "Cat" || value.graphic === "Turtle" || value.graphic === "Reindeer")
       }
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
 
       setShoppingMenu(updateMenu)
@@ -216,7 +220,7 @@ function App() {
 
     if (checkBoxAnkle.checked) {
       const updateMenu = Object.assign({}, shoppingMenu)
-      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       setShoppingMenu(filteredMenu)
     } else {
       let updateMenu = Object.assign({}, sockData)
@@ -233,15 +237,15 @@ function App() {
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
       setShoppingMenu(updateMenu)
     }
@@ -258,7 +262,7 @@ function App() {
 
     if (checkBoxCrew.checked) {
       const updateMenu = Object.assign({}, shoppingMenu)
-      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       setShoppingMenu(filteredMenu)
     } else {
       let updateMenu = Object.assign({}, sockData)
@@ -275,15 +279,15 @@ function App() {
       }
 
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
       setShoppingMenu(updateMenu)
     }
@@ -300,7 +304,7 @@ function App() {
 
     if (checkBoxExecutive.checked) {
       const updateMenu = Object.assign({}, shoppingMenu)
-      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       setShoppingMenu(filteredMenu)
     } else {
       let updateMenu = Object.assign({}, sockData)
@@ -317,15 +321,15 @@ function App() {
       }
 
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxNoShow.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       }
       setShoppingMenu(updateMenu)
     }
@@ -342,7 +346,7 @@ function App() {
 
     if (checkBoxNoShow.checked) {
       const updateMenu = Object.assign({}, shoppingMenu)
-      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "no-show")
+      const filteredMenu = Object.values(updateMenu).filter(value => value.length === "No-Show")
       setShoppingMenu(filteredMenu)
     } else {
       let updateMenu = Object.assign({}, sockData)
@@ -359,15 +363,15 @@ function App() {
       }
 
       if (checkBoxAnkle.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "ankle")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Ankle")
       }
 
       if (checkBoxCrew.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "crew")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Crew")
       }
 
       if (checkBoxExecutive.checked) {
-        updateMenu = Object.values(updateMenu).filter(value => value.length === "executive")
+        updateMenu = Object.values(updateMenu).filter(value => value.length === "Executive")
       }
       setShoppingMenu(updateMenu)
     }
@@ -472,9 +476,18 @@ function App() {
                               </div>
                             </div>
 
-                            <button className={"ItemRemove"} onClick={() => removeFromCart(sockDataMap[index])}>
-                              Remove
-                            </button>
+                            <div>
+                              <div className={"ItemQty"}>Quantity:</div>
+                              <div className={"ButtonContainer"}>
+                                <button className={"Minus"} onClick={() => removeFromCart(index)}>
+                                  <span className={"Subtracting"}>-</span>
+                                </button>
+                                <div className={"Qty"}>{value}</div>
+                                <button className={"Plus"} onClick={() => addToCart(index)}>
+                                  <span className={"Adding"}>+</span>
+                                </button>
+                              </div>
+                            </div>
                           </div>
                         }
                     )
